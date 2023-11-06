@@ -8,10 +8,9 @@ import { GrSchedule } from 'react-icons/gr'
 import { MdPeopleOutline } from 'react-icons/md'
 import { LiaHistorySolid } from 'react-icons/lia'
 
-const SideMenuItens = [
-    {
+const SideMenuItens = [{
         key: 1,
-        icon: <FileImageOutlined />,
+        icon: < FileImageOutlined / > ,
         label: 'Mídias',
         route: 'midias',
     },
@@ -23,7 +22,7 @@ const SideMenuItens = [
     // },
     {
         key: 3,
-        icon: <GrSchedule />,
+        icon: < GrSchedule / > ,
         label: 'Agenda',
         route: 'agenda',
     },
@@ -41,15 +40,21 @@ const SideMenuItens = [
     // },
     {
         key: 6,
-        icon: <MdPeopleOutline />,
+        icon: < MdPeopleOutline / > ,
         label: 'Cadastro Fisioterapeuta',
         route: 'fisioterapeuta',
     },
     {
-        key: 7, 
-        icon: <MdPeopleOutline />,
+        key: 7,
+        icon: < MdPeopleOutline / > ,
         label: 'Acompanhamento',
         route: 'acompanhamento',
+    },
+    {
+        key: 8,
+        icon: < MdPeopleOutline / > ,
+        label: 'Gerenciamento de planos',
+        route: 'gerenciamento',
     }
 ]
 
