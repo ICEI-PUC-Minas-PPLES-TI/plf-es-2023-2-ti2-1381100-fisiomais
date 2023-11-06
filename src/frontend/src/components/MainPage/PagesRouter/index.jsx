@@ -12,7 +12,7 @@ import Cadastro from 'pages/Cadastro';
 import Plano from 'pages/Plano'
 import CadastroFisioterapeuta from 'pages/Fisioterapeuta';
 import AcompanhamentoVirtual from 'pages/Acompanhar';
-import GerenciamentoPlanos from 'pages/Gerenciamento';
+//import GerenciamentoPlanos from 'pages/Gerenciamento';
 
 const PagesRouter = () => {
     return ( <
@@ -56,8 +56,8 @@ const PagesRouter = () => {
         /> <
         Route path = "/gerenciamento"
         element = { < AcompanhamentoVirtual / > }
-        /> <
-        /Routes>
+        /> < /
+        Routes >
     );
 }
 
