@@ -12,23 +12,52 @@ import Cadastro from 'pages/Cadastro';
 import Plano from 'pages/Plano'
 import CadastroFisioterapeuta from 'pages/Fisioterapeuta';
 import AcompanhamentoVirtual from 'pages/Acompanhar';
+import GerenciamentoPlanos from 'pages/Gerenciamento';
 
 const PagesRouter = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/midias" element={<Midias />} />
-            <Route path="/midia/:id" element={<MidiaDetail />} />
-            <Route path="/midia/criar" element={<NewMidia />} />
-            <Route path="/agenda" element={<Agenda />} />
-            <Route path="/exercicios" element={<Exercicios />} />
-            <Route path="/historico" element={<Historico />} />
-            <Route path="/pacientes" element={<Pacientes />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/plano" element={<Plano />} />
-            <Route path="/fisioterapeuta" element={<CadastroFisioterapeuta />} />
-            <Route path="/acompanhamento" element={<AcompanhamentoVirtual />} />
-        </Routes>
+    return ( <
+        Routes >
+        <
+        Route path = "/"
+        element = { < Home / > }
+        /> <
+        Route path = "/midias"
+        element = { < Midias / > }
+        /> <
+        Route path = "/midia/:id"
+        element = { < MidiaDetail / > }
+        /> <
+        Route path = "/midia/criar"
+        element = { < NewMidia / > }
+        /> <
+        Route path = "/agenda"
+        element = { < Agenda / > }
+        /> <
+        Route path = "/exercicios"
+        element = { < Exercicios / > }
+        /> <
+        Route path = "/historico"
+        element = { < Historico / > }
+        /> <
+        Route path = "/pacientes"
+        element = { < Pacientes / > }
+        /> <
+        Route path = "/cadastro"
+        element = { < Cadastro / > }
+        /> <
+        Route path = "/plano"
+        element = { < Plano / > }
+        /> <
+        Route path = "/fisioterapeuta"
+        element = { < CadastroFisioterapeuta / > }
+        /> <
+        Route path = "/acompanhamento"
+        element = { < AcompanhamentoVirtual / > }
+        /> <
+        Route path = "/gerenciamento"
+        element = { < AcompanhamentoVirtual / > }
+        /> <
+        /Routes>
     );
 }
 
