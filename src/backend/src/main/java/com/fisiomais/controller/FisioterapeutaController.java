@@ -50,6 +50,7 @@ public class FisioterapeutaController {
         return fisioterapeuta;
     }
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFisioterapeuta(@PathVariable Long id) {
         fisioterapeutaService.deleteById(id);
