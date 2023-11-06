@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {
     Form,
     Input,
@@ -23,8 +23,8 @@ const App = () => {
             { float: 'left' }
         }
         /div>  <
-        p > A central dos fisioterapeutas. < /p>  <
-        /div >
+        p > A central dos fisioterapeutas. < /p>  < /
+        div >
 
         <
         div className = "topnav" >
@@ -139,4 +139,4 @@ const App = () => {
     );
 }
 
-export  default  App;
+export  default  App;*/
