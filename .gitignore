@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+
+# Arquivos de compilação front-end
+/dist/
+/build/
+
+# Dependências geradas pelo npm ou yarn
+package-lock.json
+yarn.lock
+
+# Arquivos temporários
+*.log
+*.bak
+*.swp
+
+# Ambiente de desenvolvimento
+.env
+
+# Arquivos de compilação back-end
+/target/
+
+# Dependências geradas pelo Maven
+*.jar
+*.war
+*.ear
+
+# Configurações do Eclipse ou IntelliJ
+.settings/
+.idea/
+
+# Diretório de log back-end
+/log/
+
+# Arquivos temporários back-end
+*.class
