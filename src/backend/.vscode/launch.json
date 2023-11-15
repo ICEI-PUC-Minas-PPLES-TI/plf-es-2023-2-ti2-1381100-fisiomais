@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CalendarService",
+            "request": "launch",
+            "mainClass": "com.fisiomais.service.CalendarService",
+            "projectName": "fisiomais"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<fisiomais>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.fisiomais.Application",
+            "projectName": "fisiomais",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -5,35 +5,27 @@ O acompanhamento virtual é um processo essencial para a comunicação entre o f
 ![Imagem](../assets/processes/processo-6-acompanhar-paciente.png)
 
 #### Detalhamento das atividades
----
-
-#### **Atividade: Fazer Login**
-
-**Objetivo:** Permitir que o usuário acesse sua conta pessoal no portal.
-
-| **Campo**       | **Tipo**       | **Restrições**               | **Valor default** |
-| --------------- | -------------- | ---------------------------- | ----------------- |
-| Nome de Usuário | Caixa de texto | -                            | -                 |
-| Senha           | Senha          | Mínimo de 6 caracteres       | -                 |
-
-| **Comandos**    | **Destino**         | **Tipo** |
-| --------------- | ------------------ | -------- |
-| Entrar          | Acesso ao Portal   | default  |
-| Esqueci a Senha | Recuperação de Senha| link     |
 
 ---
 
-#### **Atividade: Acessar Portal**
+#### **Atividade: Verificar se há consultas agendadas**
 
-**Objetivo:** Permitir que o usuário navegue pelo portal após fazer login.
+**Objetivo:** Permitir ao fisioterapeuta uma rápida visualização das consultas que estão programadas para determinados dias e horários.
 
-| **Campo**       | **Tipo** | **Restrições** | **Valor default** |
-| --------------- | -------- | ---------------| ----------------- |
-| Portal          | Link     | -               | -                 |
+| **Campo**              | **Tipo**               | **Restrições**                     | **Valor default** |
+| ---------------------- | ----------------------  | ---------------------------------- | ----------------- |
+| Data da Verificação    | Data                   | Deve ser uma data válida           | Data atual        |
+| Consultas do Dia       | Tabela                 | -                                  | -                 |
+| Status da Consulta     | Seleção única          | Confirmada, Pendente, Cancelada    | -                 |
+
+| **Comandos**           | **Destino**                      | **Tipo** |
+| ---------------------- | -------------------------------  | -------- |
+| Detalhar               | Tela de Detalhes da Consulta     | link     |
+| Atualizar              | Atualização da lista de consultas| button   |
 
 ---
 
-#### **Atividade: Realizar Acompanhamento**
+#### **Atividade: Realizar e registrar acompanhamento das consultas**
 
 **Objetivo:** Facilitar o acompanhamento de pacientes, permitindo que o profissional visualize informações detalhadas.
 
@@ -47,21 +39,7 @@ O acompanhamento virtual é um processo essencial para a comunicação entre o f
 
 ---
 
-#### **Atividade: Registrar Observações**
-
-**Objetivo:** Permitir que o profissional faça anotações importantes sobre o acompanhamento realizado.
-
-| **Campo**       | **Tipo**       | **Restrições** | **Valor default** |
-| --------------- | -------------- | ---------------| ----------------- |
-| Observações     | Área de texto  | -              | -                 |
-
-| **Comandos**    | **Destino**               | **Tipo** |
-| --------------- | ------------------------- | -------- |
-| Salvar          | Salvar Observações        | default  |
-
----
-
-#### **Atividade: Fazer Ajustes**
+#### **Atividade: Realizar ajustes necessarios**
 
 **Objetivo:** Permitir que o profissional faça ajustes conforme necessário após o acompanhamento.
 
@@ -75,7 +53,7 @@ O acompanhamento virtual é um processo essencial para a comunicação entre o f
 
 ---
 
-#### **Atividade: Enviar Ajustes ao Cliente**
+#### **Atividade: Enviar notificação de ajustes para o cliente**
 
 **Objetivo:** Comunicar ao paciente qualquer ajuste feito pelo profissional.
 
@@ -89,7 +67,7 @@ O acompanhamento virtual é um processo essencial para a comunicação entre o f
 
 ---
 
-#### **Atividade: Receber Notificação de Ajustes Feitos**
+#### **Atividade: Receber notificação sobre ajustes feitos**
 
 **Objetivo:** Garantir que o paciente seja informado sobre quaisquer ajustes realizados pelo profissional.
 
@@ -103,7 +81,7 @@ O acompanhamento virtual é um processo essencial para a comunicação entre o f
 
 ---
 
-#### **Atividade: Confirmar Recebimento**
+#### **Atividade: Confirmar Recebimento de ajustes**
 
 **Objetivo:** Assegurar que o paciente confirmou o recebimento das notificações de ajustes.
 

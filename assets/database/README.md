@@ -8,10 +8,13 @@ Os principais documentos a serem produzidos são:
 * [`Entity-Relation Diagram`](DER.erd)
 	* Apresentar o DER em arquivo editável no formato compatível com a ferramenta utilizada pela equipe.
 
-* [`database_creation_script.sql`](database_creation_script.sql)
+* [`database_creation.sql`](database_creation.sql)
 	* Script de criação do banco de dados.
 
 * [`database_data_initialization_script.sql`](database_data_initialization_script.sql)
 	* Script de inicialização (povoamento) do banco de dados.
+
+* [`main_queries.sql`](main_queries.sql)
+  * Script com queries úteis para o sistema
 
 Demais artefatos que julgar pertinentes.

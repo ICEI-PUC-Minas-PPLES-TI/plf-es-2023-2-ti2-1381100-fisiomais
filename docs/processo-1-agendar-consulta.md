@@ -1,14 +1,14 @@
-### **3.3.1 Processo 1 – Agendar Consulta**
+### **3.3.1 Processo 1 – Solicitar Agendamento de Consulta**
 
 ---
 
-Este processo descreve o agendamento de consultas de fisioterapia de forma online. O agendamento pode ser realizado pelo paciente ou fisioterapeuta.
+Este processo descreve a solicitação do agendamento de consultas de fisioterapia de forma online. O agendamento pode ser realizado apenas pelo paciente.
 
-O processo começa quando o paciente ou fisioterapeuta acessa o sistema de agendamento. O usuário deve fornecer informações relevantes, como o nome do paciente, a data e a hora desejadas para a consulta, informações de contato, e o fisioterapeuta específico (se aplicável).
+O processo começa quando o paciente acessa o sistema de agendamento. O usuário deve fornecer informações relevantes, como o fisioterapeuta desejado para realizar a marcação, a data e a hora desejadas para a consulta (de acordo com as limitações de agenda do fisioterapeuta).
 
-Depois de preencher esses dados, o usuário envia a solicitação de agendamento que ficará pendente até que o outro envolvido faça uma confirmação. Após a confirmação a consulta é de fato agendada.
+Depois de preencher esses dados, o paciente envia a solicitação de agendamento que ficará pendente até que o outro envolvido faça uma confirmação (caso o controle automático esteja desativado) ou imediatamente confirmada, caso contrário.
 
-Este processo permite que os pacientes agendem suas consultas sem a necessidade de ligar, visitar a clínica ou contatar por e-mail. Além disso, os fisioterapeutas também podem usar o sistema para agendar consultas para os pacientes.
+Este processo permite que os pacientes agendem suas consultas sem a necessidade de ligar, visitar a clínica ou contatar por e-mail.
 
 Em seguida, apresentamos o modelo do processo 1, descrito no padrão BPMN.
 
@@ -22,86 +22,40 @@ Nessa seção serão apresentadas descrições detalhadas de cada atividade, ori
 
 **Atividade: Mostrar dados do Paciente**
 
-Nesta etapa, o sistema apresenta os dados do paciente, que já foram preenchidos em algum outro momento.
+Nesta etapa, o sistema apresenta os dados do paciente, que já foram preenchidos em algum outro momento. Como Nome, data de nascimento, gênero, CPF, endereço, telefone e email cadastrados.
 
-| **Campo**          | **Tipo**       | **Restrições**                         | **Valor default** |
-| ------------------ | -------------- | -------------------------------------- | ----------------- |
-| Nome do Paciente   | Caixa de texto | Máximo de 100 caracteres               | Dados cadastrados |
-| Data de Nascimento | Data           | -                                      | Dados cadastrados |
-| Gênero             | Seleção única  | Opções: Masculino, Feminino, Outro     | Dados cadastrados |
-| CPF                | Caixa de texto | Deve seguir o formato: XXX.XXX.XXX-XX  | Dados cadastrados |
-| Endereço           | Caixa de texto | Máximo de 200 caracteres               | Dados cadastrados |
-| Telefone           | Caixa de texto | Deve seguir o formato: (XX) XXXXX-XXXX | Dados cadastrados |
-| Email              | Caixa de texto | Deve ser um email válido               | Dados cadastrados |
 
-| **Comandos** | **Destino**               | **Tipo** |
-| ------------ | ------------------------- | -------- |
-| Próximo      | Escolher o Profissional   | default  |
-| Cancelar     | Retorno ao menu principal | cancel   |
+| **Comandos**  | **Destino**                       | **Tipo** |
+| ------------- | --------------------------------- | -------- |
+| Próximo Passo | Preencher informações da consulta | default  |
 
 ---
 
 <br>
 
-**Atividade: Escolher o Profissional**
+**Atividade: **Atividade: Preencher informações da consulta**
 
-Nesta etapa, o paciente escolhe o profissional para a consulta.
+Nesta etapa, o paciente escolhe a data e o horário da consulta e o profissional desejado.
 
-| **Campo**    | **Tipo**      | **Restrições**                   | **Valor default** |
-| ------------ | ------------- | -------------------------------- | ----------------- |
-| Profissional | Seleção única | Opções: [Lista de profissionais] | -                 |
-
-| **Comandos** | **Destino**               | **Tipo** |
-| ------------ | ------------------------- | -------- |
-| Próximo      | Escolher data e horário   | default  |
-| Cancelar     | Retorno ao menu principal | cancel   |
-
----
-
-<br>
-
-**Atividade: Escolher data e horário**
-
-Nesta etapa, o paciente escolhe a data e o horário da consulta.
-
-| **Campo**           | **Tipo** | **Restrições**                    | **Valor default** |
-| ------------------- | -------- | --------------------------------- | ----------------- |
-| Data da Consulta    | Data     | Pré-definidos pelo Fisioterapeuta | -                 |
-| Horário da Consulta | Hora     | Pré-definidos pelo Fisioterapeuta | -                 |
+| **Campo**           | **Tipo**      | **Restrições**                           | **Valor default** |
+| ------------------- | ------------- | ---------------------------------------- | ----------------- |
+| Profissional        | Seleção única | Opções: [Lista de profissionais]         | -                 |
+| Data da Consulta    | Data          | De acordo com a agenda do Fisioterapeuta | -                 |
+| Horário da Consulta | Hora          | De acordo com a agenda do Fisioterapeuta | -                 |
 
 | **Comandos** | **Destino**                       | **Tipo** |
 | ------------ | --------------------------------- | -------- |
-| Confirmar    | Enviar solicitação de agendamento | default  |
-| Cancelar     | Retorno ao menu principal         | cancel   |
+| Próximo      | Enviar solicitação de agendamento | default  |
 
 ---
 
 <br>
 
-**Atividade: Enviar solicitação de agendamento**
+**Atividade: Mostrar resumo da consulta**
 
-Nesta etapa, o sistema envia a solicitação de agendamento para o fisioterapeuta.
+Nesta etapa, o sistema apresenta os dados resumidos da consulta e seu estado até o momento (Confirmado, Pendente...)
 
----
 
-<br>
-
-**Atividade: Confirmar agendamento (Manual)**
-
-Nesta etapa, o Fisioterapeuta decide se irá confirmar ou não o agendamento solicitado.
-
-| **Campo**   | **Tipo**       | **Restrições**           | **Valor default** |
-| ----------- | -------------- | ------------------------ | ----------------- |
-| Confirmar   | Seleção única  | Opções: Sim, Não         | -                 |
-| Observações | Caixa de texto | Máximo de 500 caracteres | ---               |
-
-| **Comandos** | **Destino**                             | **Tipo** |
-| ------------ | --------------------------------------- | -------- |
-| Salvar       | Finalizar solicitação (Fim do processo) | default  |
-| Cancelar     | Retorno ao menu principal               | cancel   |
-
-<br>
-
-**Atividade: Confirmar agendamento (Automático)**
-
-Nesta etapa, o sistema compara a data e horário solicitados com as disponíveis cadastradas pelo Fisioterapeuta para efetuar ou não o agendamento.
+| **Comandos**         | **Destino**                             | **Tipo** |
+| -------------------- | --------------------------------------- | -------- |
+| Voltar para o início | Fim do processo (vai para tela inicial) | default  |

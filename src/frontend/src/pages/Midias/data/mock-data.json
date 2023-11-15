@@ -1,0 +1,184 @@
+{
+    "midias": [
+        {
+            "id": 1,
+            "fisioterapeuta_id": 1,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=tkjcnh1NPEw",
+            "titulo": "Demonstração de Exercício 1",
+            "descricao": "Um vídeo demonstrando um exercício específico.",
+            "createTime": "2021-08-01T00:00:00.000000Z"
+        },
+        {
+            "id": 2,
+            "fisioterapeuta_id": 2,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/201",
+            "titulo": "Imagem Anatômica",
+            "descricao": "Uma imagem anatômica para referência.",
+            "createTime": "2021-05-02T00:00:00.000000Z"
+        },
+        {
+            "id": 3,
+            "fisioterapeuta_id": 1,
+            "type": "GIF",
+            "linkArquivo": "https://media.tenor.com/6gHLhmwO87sAAAAi/gg.gif",
+            "titulo": "GIF de Exercício Terapêutico",
+            "descricao": "Um GIF demonstrando um exercício terapêutico.",
+            "createTime": "2021-05-03T00:00:00.000000Z"
+        },
+        {
+            "id": 4,
+            "fisioterapeuta_id": 3,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=2",
+            "titulo": "Sessão de Fisioterapia",
+            "descricao": "Um vídeo de uma sessão de fisioterapia em andamento.",
+            "createTime": "2021-05-04T00:00:00.000000Z"
+        },
+        {
+            "id": 5,
+            "fisioterapeuta_id": 2,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/202",
+            "titulo": "Gráfico de Músculos",
+            "descricao": "Um gráfico de músculos para fins educacionais.",
+            "createTime": "2021-05-05T00:00:00.000000Z"
+        },
+        {
+            "id": 6,
+            "fisioterapeuta_id": 4,
+            "type": "GIF",
+            "linkArquivo": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif",
+            "titulo": "GIF de Exercício de Reabilitação",
+            "descricao": "Um GIF demonstrando um exercício de reabilitação.",
+            "createTime": "2021-05-06T00:00:00.000000Z"
+        },
+        {
+            "id": 7,
+            "fisioterapeuta_id": 3,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=3",
+            "titulo": "Rotina de Alongamento",
+            "descricao": "Um vídeo mostrando uma rotina de alongamento.",
+            "createTime": "2021-05-07T00:00:00.000000Z"
+        },
+        {
+            "id": 8,
+            "fisioterapeuta_id": 5,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/203",
+            "titulo": "Imagem de Lesão no Tornozelo",
+            "descricao": "Uma imagem de lesão no tornozelo para diagnóstico.",
+            "createTime": "2021-05-08T00:00:00.000000Z"
+        },
+        {
+            "id": 9,
+            "fisioterapeuta_id": 4,
+            "type": "GIF",
+            "linkArquivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiphy.com%2Fstickers%2Fwork-progress-workinprogress-Lr4HRF6DEEJo90SQXF&psig=AOvVaw1vMC_mja0Ez4dXhQTbAyC1&ust=1698546938031000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIj_jcnal4IDFQAAAAAdAAAAABAP",
+            "titulo": "GIF de Técnica de Exercício Terapêutico",
+            "descricao": "Um GIF ilustrando uma técnica de exercício terapêutico.",
+            "createTime": "2021-05-09T00:00:00.000000Z"
+        },
+        {
+            "id": 10,
+            "fisioterapeuta_id": 1,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=4",
+            "titulo": "Video de Prevenção de Lesões",
+            "descricao": "Um vídeo sobre a prevenção de lesões comuns.",
+            "createTime": "2021-05-10T00:00:00.000000Z"
+        },
+        {
+            "id": 11,
+            "fisioterapeuta_id": 3,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/204",
+            "titulo": "Raio-X da Coluna",
+            "descricao": "Uma imagem de raio-X da coluna para avaliação.",
+            "createTime": "2021-05-11T00:00:00.000000Z"
+        },
+        {
+            "id": 12,
+            "fisioterapeuta_id": 5,
+            "type": "GIF",
+            "linkArquivo": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif",
+            "titulo": "GIF de Exercício de Equilíbrio",
+            "descricao": "Um GIF demonstrando um exercício de equilíbrio.",
+            "createTime": "2021-05-12T00:00:00.000000Z"
+        },
+        {
+            "id": 13,
+            "fisioterapeuta_id": 2,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=5",
+            "titulo": "Correção de Postura",
+            "descricao": "Um vídeo sobre a correção de postura para melhor saúde.",
+            "createTime": "2021-05-13T00:00:00.000000Z"
+        },
+        {
+            "id": 14,
+            "fisioterapeuta_id": 4,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/205",
+            "titulo": "Anatomia do Joelho",
+            "descricao": "Uma imagem mostrando a anatomia da articulação do joelho.",
+            "createTime": "2021-05-14T00:00:00.000000Z"
+        },
+        {
+            "id": 15,
+            "fisioterapeuta_id": 3,
+            "type": "GIF",
+            "linkArquivo": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif",
+            "titulo": "GIF de Exercício de Amplitude de Movimento",
+            "descricao": "Um GIF demonstrando um exercício de amplitude de movimento.",
+            "createTime": "2021-05-15T00:00:00.000000Z"
+        },
+        {
+            "id": 16,
+            "fisioterapeuta_id": 1,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=6",
+            "titulo": "Fortalecimento do Núcleo",
+            "descricao": "Um vídeo demonstrando exercícios de fortalecimento do núcleo.",
+            "createTime": "2021-05-16T00:00:00.000000Z"
+        },
+        {
+            "id": 17,
+            "fisioterapeuta_id": 2,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/206",
+            "titulo": "Gráfico de Flexibilidade",
+            "descricao": "Um gráfico de flexibilidade para avaliação.",
+            "createTime": "2021-05-17T00:00:00.000000Z"
+        },
+        {
+            "id": 18,
+            "fisioterapeuta_id": 4,
+            "type": "GIF",
+            "linkArquivo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.pinterest.com%2Fpin%2F824369906786761893%2F&psig=AOvVaw1SGybkcq8nxiOSwT_NqQkD&ust=1698544704569000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPjqlqDSl4IDFQAAAAAdAAAAABAE",
+            "titulo": "GIF de Exercício de Relaxamento",
+            "descricao": "Um GIF mostrando exercícios de relaxamento.",
+            "createTime": "2021-05-18T00:00:00.000000Z"
+        },
+        {
+            "id": 19,
+            "fisioterapeuta_id": 3,
+            "type": "Video",
+            "linkArquivo": "https://www.youtube.com/watch?v=hZPbQZUqjKA",
+            "titulo": "Reabilitação do Ombro",
+            "descricao": "Um vídeo de reabilitação do ombro após lesão.",
+            "createTime": "2021-05-19T00:00:00.000000Z"
+        },
+        {
+            "id": 20,
+            "fisioterapeuta_id": 5,
+            "type": "Imagem",
+            "linkArquivo": "https://picsum.photos/207",
+            "titulo": "Anatomia do Quadril",
+            "descricao": "Uma imagem mostrando a anatomia da articulação do quadril.",
+            "createTime": "2021-05-20T00:00:00.000000Z"
+        }
+    ]
+}

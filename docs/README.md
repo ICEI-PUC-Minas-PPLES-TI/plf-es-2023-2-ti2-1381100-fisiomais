@@ -34,10 +34,6 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Cató
 
 ---
 
-_**Resumo**. 
-
----
-
 
 ## 1. Introdução
 
@@ -132,6 +128,8 @@ Os sistemas existentes carecem de uma solução completa e especializada, princi
 [PROCESSO 6 - Acompanhamento Virtual](processo-6-acompanhamento-virtual.md "Detalhamento do Processo 6.")
 
 [PROCESSO 7 - Gerenciar Mídias](processo-7-gerenciar-midias.md "Detalhamento do Processo 7.")
+
+[PROCESSO 8 - Criar Plano](processo-8-criar-plano.md "Detalhamento do Processo 8.")
 
 ## 4. Projeto da solução
 

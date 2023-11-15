@@ -7,24 +7,6 @@ Esse processo refere-se ao gerenciamento de consultas por parte do fisioterapeut
 #### Detalhamento das atividades
 ---
 
----
-
-#### **Atividade: Fazer Login no Portal**
-
-**Objetivo:** Permitir que o fisioterapeuta acesse sua conta pessoal no portal.
-
-| **Campo**          | **Tipo**       | **Restrições**               | **Valor default** |
-| ------------------ | -------------- | ---------------------------- | ----------------- |
-| Nome de Usuário    | Caixa de texto | -                            | -                 |
-| Senha              | Senha          | Mínimo de 6 caracteres       | -                 |
-
-| **Comandos**       | **Destino**                         | **Tipo** |
-| ------------------ | ---------------------------------- | -------- |
-| Entrar             | Acesso ao Portal                   | default  |
-| Esqueci a Senha    | Recuperação de Senha               | link     |
-
----
-
 #### **Atividade: Acessar Painel de Consultas**
 
 **Objetivo:** Permitir que o fisioterapeuta visualize e gerencie suas consultas agendadas.
@@ -39,7 +21,7 @@ Esse processo refere-se ao gerenciamento de consultas por parte do fisioterapeut
 
 ---
 
-#### **Atividade: Revisar e Gerenciar Consultas Agendadas**
+#### **Atividade: Gerenciar Consultas Agendadas**
 
 **Objetivo:** Permitir a revisão e gestão eficiente das consultas agendadas.
 
@@ -52,5 +34,22 @@ Esse processo refere-se ao gerenciamento de consultas por parte do fisioterapeut
 | ------------------ | ---------------------------------- | -------- |
 | Alterar            | Tela de Alteração de Consulta       | link     |
 | Cancelar           | Tela de Cancelamento de Consulta    | link     |
+
+---
+
+#### **Atividade: Cadastrar Datas e Horários**
+
+**Objetivo:** Facilitar a disponibilidade do fisioterapeuta, permitindo registrar os dias e horários em que está disponível para consultas.
+
+| **Campo**              | **Tipo**           | **Restrições**                     | **Valor default** |
+| ---------------------- | ------------------- | ---------------------------------- | ----------------- |
+| Dias Disponíveis       | Seleção múltipla    | Segunda a Domingo                  | -                 |
+| Horário de Início      | Hora                | Horário válido (formato 24 horas)  | -                 |
+| Horário de Término     | Hora                | Horário válido (formato 24 horas)  | -                 |
+
+| **Comandos**           | **Destino**                     | **Tipo** |
+| ---------------------- | ------------------------------  | -------- |
+| Salvar                 | Confirmação de Cadastro         | submit   |
+| Cancelar               | Retorno ao painel anterior      | link     |
 
 ---
