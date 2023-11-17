@@ -42,7 +42,7 @@ INSERT INTO `fisiomais_db`.`agenda` (`disponivel`, `dia`, `horario_inicio`, `hor
 
 #### Populando a tabela consulta:
 ```sql
-INSERT INTO `fisiomais_db`.`consulta` (`paciente__id`, `fisioterapeuta__id`, `data_e_hora`, `observaoes`, `confirmacao`, `owner_id`, `link`) VALUES 
+INSERT INTO `fisiomais_db`.`consulta` (`paciente__id`, `fisioterapeuta__id`, `data_e_hora`, `observacoes`, `confirmacao`, `owner_id`, `link`) VALUES 
 (1, 1, '2023-10-25 10:00:00', 'Primeira consulta do paciente.', 1, 1, 'http://linkconsulta1.com'),
 (2, 2, '2023-10-26 11:00:00', 'Retorno após 1 mês.', 0, 2, 'http://linkconsulta2.com'),
 (3, 3, '2023-10-27 14:00:00', 'Consulta de rotina.', 1, 3, 'http://linkconsulta3.com'),
@@ -57,14 +57,14 @@ INSERT INTO `fisiomais_db`.`consulta` (`paciente__id`, `fisioterapeuta__id`, `da
 #### Populando a tabela midia:
 ```sql
 INSERT INTO `fisiomais_db`.`midia` (`fisioterapeuta__id`, `type`, `titulo`, `descricao`, `link_arquivo`) VALUES 
-(1, 'Vídeo', 'Exercício 1', 'Vídeo demonstrativo do exercício 1.', 'http://linkvideo1.com'),
+(1, Video, 'Exercício 1', 'Vídeo demonstrativo do exercício 1.', 'http://linkvideo1.com'),
 (2, 'Imagem', 'Posição correta', 'Imagem mostrando a postura correta.', 'http://linkimagem1.com'),
 (3, 'GIF', 'Movimento repetido', 'GIF demonstrando um movimento a ser repetido.', 'http://linkgif1.com'),
 (1, 'Imagem', 'Postura correta ao sentar', 'Imagem mostrando a postura correta ao sentar em uma cadeira.', 'http://linkimagem2.com'),
 (2, 'GIF', 'Exercício de respiração', 'GIF demonstrando exercício de respiração profunda.', 'http://linkgif2.com'),
-(3, 'Vídeo', 'Alongamento de membros inferiores', 'Vídeo com série de alongamentos para pernas.', 'http://linkvideo2.com'),
+(3, Video, 'Alongamento de membros inferiores', 'Vídeo com série de alongamentos para pernas.', 'http://linkvideo2.com'),
 (1, 'GIF', 'Exercício de rotação', 'GIF demonstrando exercício de rotação de ombro.', 'http://linkgif3.com'),
-(2, 'Vídeo', 'Técnicas de relaxamento', 'Vídeo com técnicas de relaxamento muscular.', 'http://linkvideo3.com'),
+(2, Video, 'Técnicas de relaxamento', 'Vídeo com técnicas de relaxamento muscular.', 'http://linkvideo3.com'),
 (3, 'Imagem', 'Postura ao levantar', 'Imagem mostrando a postura correta ao levantar objetos pesados.', 'http://linkimagem3.com');
 ```
 

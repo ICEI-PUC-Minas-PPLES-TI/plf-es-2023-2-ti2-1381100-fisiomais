@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `fisiomais_db`.`midia` (
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `_id` INT NOT NULL AUTO_INCREMENT,
   `fisioterapeuta__id` INT NOT NULL,
-  `type` ENUM('Vídeo', 'Imagem', 'GIF') NOT NULL,
+  `type` ENUM(Video, 'Imagem', 'GIF') NOT NULL,
   `arquivo` LONGBLOB NULL,
   `link_arquivo` LONGTEXT NULL,
   `titulo` VARCHAR(100) NOT NULL,

@@ -1,0 +1,4 @@
+:sparkles: feat: processo 1 no backend:
+- Adicionando mappers de response para: Fisioterapeuta, Paciente e Consulta
+- Adicionando google service para gerar links de consultas
+- adicionando handler de exceptions #98
