@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev:json": "API_TYPE=json vite",
     "dev:spring": "API_TYPE=spring vite",
     "api": "json-server --watch data/db.json --port 8080",
