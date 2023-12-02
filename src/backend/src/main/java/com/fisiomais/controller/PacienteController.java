@@ -1,8 +1,10 @@
 package com.fisiomais.controller;
 
+import com.fisiomais.bodys.PacienteResponse;
 import com.fisiomais.dto.PacienteDTO;
 import com.fisiomais.service.PacienteService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/paciente")
+@SecurityRequirement(name = "Bearer Authentication")
 @Tag(name = "Paciente", description = "Paciente API")
 public class PacienteController {
 
@@ -39,8 +42,8 @@ public class PacienteController {
     }
 
     @PostMapping
-    public ResponseEntity<PacienteDTO> createPaciente(@RequestBody PacienteDTO pacienteDTO) {
-        PacienteDTO createdPaciente = pacienteService.createPaciente(pacienteDTO);
+    public ResponseEntity<PacienteResponse> createPaciente(@RequestBody PacienteDTO pacienteDTO) {
+        PacienteResponse createdPaciente = pacienteService.createPaciente(pacienteDTO);
         return new ResponseEntity<>(createdPaciente, HttpStatus.CREATED);
     }
 

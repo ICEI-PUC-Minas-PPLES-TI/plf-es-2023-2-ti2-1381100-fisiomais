@@ -1,0 +1,38 @@
+export default {
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  theme: {
+    extend: {
+      colors: {
+        accent: "var(--accent)",
+        "accent-dark": "var(--accent-dark)",
+        attention: "var(--attention)",
+        base: "var(--base)",
+        "blue-active": "var(--blue-active)",
+        "blue-light": "var(--blue-light)",
+        "gray-100": "var(--gray-100)",
+        "gray-400": "var(--gray-400)",
+        "gray-900": "var(--gray-900)",
+        green: "var(--green)",
+        "grey-100": "var(--grey-100)",
+        "grey-200": "var(--grey-200)",
+        "grey-400": "var(--grey-400)",
+        "grey-700": "var(--grey-700)",
+        "grey-800": "var(--grey-800)",
+        inactive: "var(--inactive)",
+        primary: "var(--primary)",
+        purple: "var(--purple)",
+        textaccent: "var(--textaccent)",
+        textbase: "var(--textbase)",
+        textdarkgrey: "var(--textdarkgrey)",
+        "textlink-default": "var(--textlink-default)",
+        "textlink-hover": "var(--textlink-hover)",
+        textwaiting: "var(--textwaiting)",
+        visited: "var(--visited)",
+      },
+      boxShadow: {
+        "shade-line": "var(--shade-line)",
+      },
+    },
+  },
+  plugins: [],
+}

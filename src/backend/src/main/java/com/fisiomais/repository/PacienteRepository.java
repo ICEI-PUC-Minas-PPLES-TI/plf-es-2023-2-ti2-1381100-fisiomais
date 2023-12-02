@@ -16,6 +16,8 @@ public interface PacienteRepository extends JpaRepository<Paciente, Integer> {
 
     Paciente findByEmail(String email);
 
+    Paciente findByCpf(String cpf);
+
     List<Paciente> findByGenero(Genero genero);
 
     Page<Paciente> findByGenero(Genero genero, Pageable pageable);

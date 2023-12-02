@@ -2,8 +2,17 @@ package com.fisiomais.controller;
 
 import com.fisiomais.bodys.FisioterapeutaNamesAndIdsResponse;
 import com.fisiomais.dto.FisioterapeutaDTO;
+import com.fisiomais.dto.indicators.NovosFisioterapeutasMetricsDTO;
+import com.fisiomais.exception.BusinessException;
 import com.fisiomais.service.FisioterapeutaService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 import com.fisiomais.model.Fisioterapeuta;
+import com.fisiomais.model.indicators.MidiaTypesMetrics;
+import com.fisiomais.model.indicators.NovosFisioterapeutasMetrics;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +23,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/fisioterapeuta")
+@SecurityRequirement(name = "Bearer Authentication")
 public class FisioterapeutaController {
 
     private final FisioterapeutaService fisioterapeutaService;
@@ -22,7 +32,7 @@ public class FisioterapeutaController {
         this.fisioterapeutaService = fisioterapeutaService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Fisioterapeuta>> getAllFisioterapeutas() {
         List<Fisioterapeuta> fisioterapeutas = fisioterapeutaService.findAll();
         return ResponseEntity.ok(fisioterapeutas);
@@ -57,5 +67,15 @@ public class FisioterapeutaController {
     public ResponseEntity<Void> deleteFisioterapeuta(@PathVariable Integer id) {
         fisioterapeutaService.deleteById(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/taxaCrescimento")
+    public ResponseEntity<Double> getTaxaCrescimento() {
+        return ResponseEntity.ok(fisioterapeutaService.getTaxaCrescimento());
+    }
+
+    @GetMapping("/indicePerfisCompletos")
+    public ResponseEntity<Double> getIndicePerfisCompletos() {
+        return ResponseEntity.ok(fisioterapeutaService.getIndicePerfisCompletos());
     }
 }

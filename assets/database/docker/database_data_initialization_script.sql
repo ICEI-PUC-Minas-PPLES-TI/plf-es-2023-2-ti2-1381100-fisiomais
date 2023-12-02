@@ -17,21 +17,21 @@ VALUES (
         'senha123',
         '31999999999',
         'Rua das Flores, 123',
-        0
+        1
     ), (
         'Guilherme Henrique Coelho Santos',
         '1395175@sga.pucminas.br',
         'senha1234',
         '31999999998',
         'Avenida Central, 456',
-        0
+        1
     ), (
         'José Victor Mendes Dias',
         '1433596@sga.pucminas.br',
         'senha12345',
         '31999999997',
         'Praça da Árvore, 789',
-        0
+        1
     ), (
         'Lucas Almeida',
         'lucas.almeida@example.com',
@@ -45,41 +45,6 @@ VALUES (
         'senha1234567',
         '31999999995',
         'Alameda das Estrelas, 345',
-        0
-    ), (
-        'Maria da Silva',
-        'maria.silva@example.com',
-        'senha5678',
-        '31988888888',
-        'Rua da Esperança, 987',
-        0
-    ), (
-        'João Ferreira',
-        'joao.ferreira@example.com',
-        'senhajoao',
-        '31977777777',
-        'Avenida da Paz, 654',
-        0
-    ), (
-        'Fernanda Oliveira',
-        'fernanda.oliveira@example.com',
-        'senhaferna',
-        '31966666666',
-        'Praça da Alegria, 321',
-        0
-    ), (
-        'Rodrigo Sousa',
-        'rodrigo.sousa@example.com',
-        'senharodrigo',
-        '31955555555',
-        'Alameda dos Sonhos, 123',
-        0
-    ), (
-        'Mariana Santos',
-        'mariana.santos@example.com',
-        'senhamariana',
-        '31944444444',
-        'Rua do Amor, 987',
         0
     );
 
@@ -281,79 +246,7 @@ INSERT INTO
         `horario_fim`,
         `fisioterapeuta__id`
     )
-VALUES (1, 1, '08:00:00', '12:00:00', 1), (1, 1, '14:00:00', '18:00:00', 1), (1, 2, '08:00:00', '12:00:00', 1), (1, 2, '14:00:00', '18:00:00', 1), (1, 3, '08:00:00', '12:00:00', 1);
-
--- Inserir registros na tabela agenda para o fisioterapeuta com _id = 2
-
-INSERT INTO
-    `fisiomais_db`.`agenda` (
-        `disponivel`,
-        `dia`,
-        `horario_inicio`,
-        `horario_fim`,
-        `fisioterapeuta__id`
-    )
-VALUES (1, 1, '09:00:00', '13:00:00', 2), (1, 1, '15:00:00', '19:00:00', 2), (1, 2, '09:00:00', '13:00:00', 2), (1, 2, '15:00:00', '19:00:00', 2), (1, 3, '09:00:00', '13:00:00', 2);
-
--- Inserir registros na tabela agenda para o fisioterapeuta com _id = 3
-
-INSERT INTO
-    `fisiomais_db`.`agenda` (
-        `disponivel`,
-        `dia`,
-        `horario_inicio`,
-        `horario_fim`,
-        `fisioterapeuta__id`
-    )
-VALUES (1, 1, '10:00:00', '14:00:00', 3), (1, 1, '16:00:00', '20:00:00', 3), (1, 2, '10:00:00', '14:00:00', 3), (1, 2, '16:00:00', '20:00:00', 3), (1, 3, '10:00:00', '14:00:00', 3);
-
--- Inserir registros na tabela agenda para o fisioterapeuta com _id = 4
-
-INSERT INTO
-    `fisiomais_db`.`agenda` (
-        `disponivel`,
-        `dia`,
-        `horario_inicio`,
-        `horario_fim`,
-        `fisioterapeuta__id`
-    )
-VALUES (1, 1, '11:00:00', '15:00:00', 4), (1, 1, '17:00:00', '21:00:00', 4), (1, 2, '11:00:00', '15:00:00', 4), (1, 2, '17:00:00', '21:00:00', 4), (1, 3, '11:00:00', '15:00:00', 4);
-
--- Inserir registros na tabela agenda para o fisioterapeuta com _id = 5
-
-INSERT INTO
-    `fisiomais_db`.`agenda` (
-        `disponivel`,
-        `dia`,
-        `horario_inicio`,
-        `horario_fim`,
-        `fisioterapeuta__id`
-    )
-VALUES (1, 1, '12:00:00', '16:00:00', 5), (1, 1, '18:00:00', '22:00:00', 5), (1, 2, '12:00:00', '16:00:00', 5), (1, 2, '18:00:00', '22:00:00', 5), (1, 3, '12:00:00', '16:00:00', 5);
-
--- Inserir registros na tabela agenda para o fisioterapeuta com _id = 6
-
-INSERT INTO
-    `fisiomais_db`.`agenda` (
-        `disponivel`,
-        `dia`,
-        `horario_inicio`,
-        `horario_fim`,
-        `fisioterapeuta__id`
-    )
-VALUES (1, 1, '13:00:00', '17:00:00', 6), (1, 1, '19:00:00', '23:00:00', 6), (1, 2, '13:00:00', '17:00:00', 6), (1, 2, '19:00:00', '23:00:00', 6), (1, 3, '13:00:00', '17:00:00', 6);
-
--- Inserir registros na tabela agenda para o fisioterapeuta com _id = 7
-
-INSERT INTO
-    `fisiomais_db`.`agenda` (
-        `disponivel`,
-        `dia`,
-        `horario_inicio`,
-        `horario_fim`,
-        `fisioterapeuta__id`
-    )
-VALUES (1, 1, '08:00:00', '12:00:00', 7), (1, 1, '14:00:00', '18:00:00', 7), (1, 2, '08:00:00', '12:00:00', 7), (1, 2, '14:00:00', '18:00:00', 7), (1, 3, '08:00:00', '12:00:00', 7);
+VALUES (1, 1, '08:00:00', '10:00:00', 5), (0, 1, '11:00:00', '13:00:00', 5), (0, 2, '14:00:00', '16:00:00', 1), (1, 2, '17:00:00', '19:00:00', 5), (1, 3, '09:00:00', '18:00:00', 1), (1, 3, '14:00:00', '16:00:00', 5), (1, 4, '10:00:00', '12:00:00', 1), (0, 4, '15:00:00', '17:00:00', 1), (1, 5, '11:00:00', '13:00:00', 1), (1, 5, '16:00:00', '18:00:00', 1);
 
 -- Populando a tabela consulta:
 
@@ -370,89 +263,185 @@ INSERT INTO
 VALUES (
         1,
         1,
-        '2023-11-10 10:00:00',
+        '2023-11-15 09:00:00',
         'Consulta de rotina.',
         'confirmado',
-        'https://exemplo.com/consulta1',
+        NULL,
         NULL
     ), (
         2,
-        2,
-        '2023-11-11 11:00:00',
-        'Avaliação inicial do paciente.',
+        1,
+        '2023-11-15 13:30:00',
+        'Acompanhamento pós-cirúrgico.',
         'confirmado',
-        'https://exemplo.com/consulta2',
+        NULL,
         NULL
     ), (
         3,
         3,
-        '2023-11-12 12:00:00',
-        'Revisão do tratamento.',
-        'cancelado',
+        '2023-11-14 11:00:00',
+        'Avaliação inicial.',
+        'confirmado',
         NULL,
         NULL
     ), (
         4,
         4,
-        '2023-11-13 13:00:00',
-        'Tratamento de lesão no joelho.',
-        'realizado',
-        'https://exemplo.com/consulta4',
+        '2023-11-16 14:45:00',
+        'Tratamento de lesão muscular.',
+        'confirmado',
+        NULL,
         NULL
     ), (
         5,
         5,
-        '2023-11-14 14:00:00',
-        'Avaliação pós-operatória.',
+        '2023-11-18 10:30:00',
+        'Reabilitação pós-acidente.',
         'confirmado',
-        'https://exemplo.com/consulta5',
+        NULL,
         NULL
     ), (
         6,
         1,
-        '2023-11-15 15:00:00',
-        'Consulta de acompanhamento.',
-        'pendente',
+        '2023-11-20 09:30:00',
+        'Consulta de rotina.',
+        'confirmado',
         NULL,
         NULL
     ), (
         7,
-        2,
-        '2023-11-16 16:00:00',
-        'Avaliação da mobilidade.',
+        1,
+        '2023-11-22 16:15:00',
+        'Acompanhamento pós-cirúrgico.',
         'confirmado',
-        'https://exemplo.com/consulta7',
+        NULL,
         NULL
     ), (
         8,
-        3,
-        '2023-11-17 17:00:00',
-        'Tratamento de dor nas costas.',
-        'cancelado',
+        1,
+        '2023-11-24 12:45:00',
+        'Avaliação inicial.',
+        'confirmado',
         NULL,
         NULL
     ), (
         9,
-        4,
-        '2023-11-18 18:00:00',
-        'Consulta para idoso.',
-        'realizado',
-        'https://exemplo.com/consulta9',
+        1,
+        '2023-11-26 14:00:00',
+        'Tratamento de lesão muscular.',
+        'confirmado',
+        NULL,
         NULL
     ), (
         10,
-        5,
-        '2023-11-19 19:00:00',
-        'Avaliação de reabilitação.',
+        1,
+        '2023-11-28 10:00:00',
+        'Reabilitação pós-acidente.',
         'confirmado',
-        'https://exemplo.com/consulta10',
+        NULL,
         NULL
     ), (
         1,
         1,
-        '2023-11-20 20:00:00',
-        'Consulta de rotina.',
-        'pendente',
+        '2023-11-15 10:00:00',
+        'Consulta de rotina',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 10:00:00',
+        'Acompanhamento pós-cirúrgico',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        8,
+        1,
+        '2023-11-24 12:45:00',
+        'Avaliação inicial',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 10:30:00',
+        'Tratamento de lesão muscular',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 13:30:00',
+        'Reabilitação pós-acidente',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-06 01:30:00',
+        'Consulta de rotina',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 11:30:00',
+        'Acompanhamento pós-cirúrgico',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 11:00:00',
+        'Avaliação inicial',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 15:30:00',
+        'Tratamento de lesão muscular',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-08 11:30:00',
+        'Reabilitação pós-acidente',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-15 12:30:00',
+        'Consulta de rotina',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-08 10:00:00',
+        'Acompanhamento pós-cirúrgico',
+        'confirmado',
+        NULL,
+        NULL
+    ), (
+        1,
+        1,
+        '2023-11-17 12:30:00',
+        'Avaliação inicial',
+        'confirmado',
         NULL,
         NULL
     );
@@ -470,57 +459,123 @@ INSERT INTO
 VALUES (
         1,
         'Video',
-        'Exercício 1',
-        'Video demonstrativo do exercício 1.',
-        'http://linkvideo1.com'
+        'Demonstração de Exercício 1',
+        'Um vídeo demonstrando um exercício específico.',
+        'https://www.youtube.com/watch?v=tkjcnh1NPEw'
     ), (
         2,
         'Imagem',
-        'Posição correta',
-        'Imagem mostrando a postura correta.',
-        'http://linkimagem1.com'
-    ), (
-        3,
-        'GIF',
-        'Movimento repetido',
-        'GIF demonstrando um movimento a ser repetido.',
-        'http://linkgif1.com'
-    ), (
-        1,
-        'Imagem',
-        'Postura correta ao sentar',
-        'Imagem mostrando a postura correta ao sentar em uma cadeira.',
-        'http://linkimagem2.com'
-    ), (
-        2,
-        'GIF',
-        'Exercício de respiração',
-        'GIF demonstrando exercício de respiração profunda.',
-        'http://linkgif2.com'
-    ), (
-        3,
-        'Video',
-        'Alongamento de membros inferiores',
-        'Video com série de alongamentos para pernas.',
-        'http://linkvideo2.com'
+        'Imagem Anatômica',
+        'Uma imagem anatômica para referência.',
+        'https://picsum.photos/201'
     ), (
         1,
         'GIF',
-        'Exercício de rotação',
-        'GIF demonstrando exercício de rotação de ombro.',
-        'http://linkgif3.com'
+        'GIF de Exercício Terapêutico',
+        'Um GIF demonstrando um exercício terapêutico.',
+        'https://media.tenor.com/6gHLhmwO87sAAAAi/gg.gif'
+    ), (
+        1,
+        'Video',
+        'Sessão de Fisioterapia',
+        'Um vídeo de uma sessão de fisioterapia em andamento.',
+        'https://www.youtube.com/watch?v=2'
+    ), (
+        2,
+        'Imagem',
+        'Gráfico de Músculos',
+        'Um gráfico de músculos para fins educacionais.',
+        'https://picsum.photos/202'
+    ), (
+        4,
+        'GIF',
+        'GIF de Exercício de Reabilitação',
+        'Um GIF demonstrando um exercício de reabilitação.',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif'
+    ), (
+        1,
+        'Video',
+        'Rotina de Alongamento',
+        'Um vídeo mostrando uma rotina de alongamento.',
+        'https://www.youtube.com/watch?v=3'
+    ), (
+        5,
+        'Imagem',
+        'Imagem de Lesão no Tornozelo',
+        'Uma imagem de lesão no tornozelo para diagnóstico.',
+        'https://picsum.photos/203'
+    ), (
+        4,
+        'GIF',
+        'GIF de Técnica de Exercício Terapêutico',
+        'Um GIF ilustrando uma técnica de exercício terapêutico.',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif'
+    ), (
+        1,
+        'Video',
+        'Video de Prevenção de Lesões',
+        'Um vídeo sobre a prevenção de lesões comuns.',
+        'https://www.youtube.com/watch?v=4'
+    ), (
+        1,
+        'Imagem',
+        'Raio-X da Coluna',
+        'Uma imagem de raio-X da coluna para avaliação.',
+        'https://picsum.photos/204'
+    ), (
+        5,
+        'GIF',
+        'GIF de Exercício de Equilíbrio',
+        'Um GIF demonstrando um exercício de equilíbrio.',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif'
     ), (
         2,
         'Video',
-        'Técnicas de relaxamento',
-        'Video com técnicas de relaxamento muscular.',
-        'http://linkvideo3.com'
+        'Correção de Postura',
+        'Um vídeo sobre a correção de postura para melhor saúde.',
+        'https://www.youtube.com/watch?v=5'
     ), (
-        3,
+        4,
         'Imagem',
-        'Postura ao levantar',
-        'Imagem mostrando a postura correta ao levantar objetos pesados.',
-        'http://linkimagem3.com'
+        'Anatomia do Joelho',
+        'Uma imagem mostrando a anatomia da articulação do joelho.',
+        'https://picsum.photos/205'
+    ), (
+        1,
+        'GIF',
+        'GIF de Exercício de Amplitude de Movimento',
+        'Um GIF demonstrando um exercício de amplitude de movimento.',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmVoMnhqNTNtcWExdzhuejNkejlmM2NoYWk4bnNiMGtxYzU2cWI1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fZDXPWad3Rhx0H0gDp/giphy.gif'
+    ), (
+        1,
+        'Video',
+        'Fortalecimento do Núcleo',
+        'Um vídeo demonstrando exercícios de fortalecimento do núcleo.',
+        'https://www.youtube.com/watch?v=6'
+    ), (
+        2,
+        'Imagem',
+        'Gráfico de Flexibilidade',
+        'Um gráfico de flexibilidade para avaliação.',
+        'https://picsum.photos/206'
+    ), (
+        4,
+        'GIF',
+        'GIF de Exercício de Relaxamento',
+        'Um GIF mostrando exercícios de relaxamento.',
+        'https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiphy.com%2Fstickers%2Fwork-progress-workinprogress-Lr4HRF6DEEJo90SQXF&psig=AOvVaw1vMC_mja0Ez4dXhQTbAyC1&ust=1698546938031000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIj_jcnal4IDFQAAAAAdAAAAABAP'
+    ), (
+        1,
+        'Video',
+        'Reabilitação do Ombro',
+        'Um vídeo de reabilitação do ombro após lesão.',
+        'https://www.youtube.com/watch?v=hZPbQZUqjKA'
+    ), (
+        5,
+        'Imagem',
+        'Anatomia do Quadril',
+        'Uma imagem mostrando a anatomia da articulação do quadril.',
+        'https://picsum.photos/207'
     );
 
 -- Populando a tabela tratamento:
@@ -649,11 +704,11 @@ VALUES (
 
 INSERT INTO
     `fisiomais_db`.`exercicio_has_midias` (
+        `exercicio__id`,
         `midia__id`,
-        `midia_fisioterapeuta__id`,
-        `exercicio__id`
+        `midia_fisioterapeuta__id`
     )
-VALUES (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 1, 4), (5, 2, 5), (6, 3, 6), (7, 1, 7), (8, 2, 8), (9, 3, 9);
+VALUES (1, 1, 1), (2, 2, 2);
 
 -- Populando a tabela tratamento_has_exercicios:
 

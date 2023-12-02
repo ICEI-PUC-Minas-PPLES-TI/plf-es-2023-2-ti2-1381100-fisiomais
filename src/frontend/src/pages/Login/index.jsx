@@ -13,7 +13,7 @@ const Login = () => {
 
 export default Login;
 
-const FullScreenContainer = styled.div`
+export const FullScreenContainer = styled.div`
     position: absolute;
     left: 0;
     top: 0;

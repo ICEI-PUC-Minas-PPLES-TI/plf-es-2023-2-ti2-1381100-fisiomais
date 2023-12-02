@@ -653,7 +653,7 @@ INSERT INTO
         `midia_fisioterapeuta__id`,
         `exercicio__id`
     )
-VALUES (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 1, 4), (5, 2, 5), (6, 3, 6), (7, 1, 7), (8, 2, 8), (9, 3, 9);
+VALUES (1, 1, 1), (3, 1, 4), (4, 1, 7), (7, 1, 1);
 
 -- Populando a tabela tratamento_has_exercicios:
 
@@ -663,3 +663,15 @@ INSERT INTO
         `exercicio__id`
     )
 VALUES (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9);
+
+INSERT INTO acompanhamento_virtual (id, data_sessao, plataforma, recursos, feedback, avaliacao, data_criacao) VALUES
+(1, '2023-01-01', 'Zoom', 'Vídeos de exercícios', 'Muito eficaz', 'Excelente', '2023-01-01'),
+(2, '2023-01-08', 'Google Meet', 'PDFs de orientação', 'Sessão informativa', 'Bom', '2023-01-08'),
+(3, '2023-01-15', 'Microsoft Teams', 'Links úteis', 'Precisa de mais informações', 'Regular', '2023-01-15'),
+(4, '2023-01-22', 'Zoom', 'Planilha de acompanhamento', 'Excelente interação', 'Excelente', '2023-01-22'),
+(5, '2023-01-29', 'Skype', 'E-book de saúde', 'Feedback positivo', 'Bom', '2023-01-29'),
+(6, '2023-02-05', 'Google Meet', 'Vídeos ilustrativos', 'Ajuda muito no tratamento', 'Excelente', '2023-02-05'),
+(7, '2023-02-12', 'Zoom', 'Artigos científicos', 'Falta de profundidade', 'Regular', '2023-02-12'),
+(8, '2023-02-19', 'Skype', 'Infográficos', 'Interessante e educativo', 'Bom', '2023-02-19'),
+(9, '2023-02-26', 'Microsoft Teams', 'Podcasts', 'Não muito engajante', 'Regular', '2023-02-26'),
+(10, '2023-03-05', 'Zoom', 'Webinars', 'Excelente material', 'Excelente', '2023-03-05');

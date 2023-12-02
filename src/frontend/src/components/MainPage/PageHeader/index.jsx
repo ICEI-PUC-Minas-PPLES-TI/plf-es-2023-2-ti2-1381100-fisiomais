@@ -20,13 +20,13 @@ const PageHeader = ({ collapsed, setCollapsed, colorBgContainer }) => {
 
     const currentUser = useSelector(state => state.currentUser.value);
 
-    if(Object.keys(currentUser.user).length === 0) {
+    if(currentUser === null || currentUser === undefined || currentUser.user === null || currentUser.user === undefined) {
         return null;
     }
 
     const userIsFisio = currentUser.user.role === 'fisioterapeuta';
     const userIsPaciente = currentUser.user.role === 'paciente';
-    const userIsLogged = Object.keys(currentUser.user).length > 0;
+    const userIsLogged = currentUser.user !== null;
 
     const handleNotifications = () => {
         // TODO - handle notifications

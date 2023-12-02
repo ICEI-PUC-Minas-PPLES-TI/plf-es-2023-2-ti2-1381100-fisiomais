@@ -1,41 +1,66 @@
-import { Form, Input, Button, Space, Image } from 'antd';
+import { Form, Input, Button, Space, Image, notification } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import FisiomaisLogo from 'assets/images/logo_stroke_white.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from 'store/currentUser';
-import { useEffect } from 'react';
+import { loginUser } from 'store/currentUser';
+import { useEffect, useState } from 'react';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const currentUser = useSelector(state => state.currentUser.value);
-    
-    useEffect(() => {
-        if(Object.keys(currentUser.user).length > 0) {
-            return navigate('/')
-        }
-    }, [])
+    const currentUser = useSelector((state) => state.currentUser.value);
+    const { user, status, error } = currentUser;
 
-    const onFinish = values => {
-        console.log('Received values of form: ', values);
-        // dispatch(login(values))
-        // TODO - create login logic
+    const isLoading = status === 'loading';
+    const isLoginSuccess = status === 'succeeded';
+    const isLoginError = status === 'failed';
+
+    const [api, contextHolder] = notification.useNotification();
+
+    useEffect(() => {
+        const handleLoginError = () => {
+            api.error({
+                message: `Erro ao realizar login`,
+                description: error || 'Erro desconhecido',
+                duration: 3,
+                placement: 'bottomRight',
+            });
+        };
+
+        if (user !== null && user !== undefined) {
+            if (isLoginSuccess) {
+                api.success({
+                    message: `Login realizado com sucesso`,
+                    description: `Bem-vindo(a), ${user.nome}!`,
+                    duration: 3,
+                    placement: 'bottomRight',
+                });
+            }
+
+            navigate('/');
+        }
+
+        if (isLoginError) {
+            handleLoginError();
+        }
+    }, [user, isLoginSuccess, status, error, navigate]);
+
+    const onFinish = (values) => {
+        dispatch(loginUser({ email: values.username, senha: values.password }));
     };
 
-    if(Object.keys(currentUser.user).length > 0) {
-        return null
+    if (user !== null) {
+        return null;
     }
 
     return (
         <div>
-            <Space style={{
-                marginBottom: '50px',
-            }}>
-                <LogoImage
-                    preview={false}
+            {contextHolder}
+            <Space style={{ marginBottom: '50px' }}>
+                <LogoImage preview={false}
                     width={250}
                     height={250}
                     src={FisiomaisLogo}
@@ -71,26 +96,26 @@ const LoginForm = () => {
                         },
                     ]}
                 >
-                    <Input
-                        prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="Senha"
-                    />
+                    <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Senha" />
                 </Form.Item>
 
                 <CustomFormItem>
-                    <CustomLoginButton type="primary" htmlType="submit" className="login-form-button">
+                    <CustomLoginButton type="primary" htmlType="submit" className="login-form-button" loading={isLoading}>
                         Entrar
                     </CustomLoginButton>
-                    <p style={{
-                        textAlign: 'center',
-                    }}> Ou </p>
-                    <CustomLink href="">Cadastre Agora</CustomLink>
+                    <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                        <SignUpLinksContainer>
+                            <span>Não tem uma conta?</span>
+                            <CustomLink onClick={() => navigate("/signup/fisioterapeuta")} to="/signup/fisioterapeuta">Cadastre-se como Fisioterapeuta</CustomLink>
+                            <span>Ou</span>
+                            <CustomLink onClick={() => navigate("/signup/paciente")} to="/signup/paciente">Cadastre-se como Paciente</CustomLink>
+                        </SignUpLinksContainer>
+                    </div>
                 </CustomFormItem>
             </Form>
         </div>
-    )
-}
+    );
+};
 
 export default LoginForm;
 
@@ -104,27 +129,34 @@ const CustomFormItem = styled(Form.Item)`
 
 const CustomLoginButton = styled(Button)`
     width: 100%;
-    background-color: #00C3A5;
-    border-color: #00C3A5;
+    background-color: #00c3a5;
+    border-color: #00c3a5;
     &:hover {
         background-color: #4ce2cc !important;
         border-color: white !important;
-        color: #00C3A5 !important;
+        color: #00c3a5 !important;
     }
 `;
 
 const CustomLink = styled(Link)`
-    color: #00C3A5;
+    color: #00c3a5;
     font-weight: bold;
     text-decoration: none;
     &:hover {
-        color: #00C3A5;
+        color: #00c3a5;
         text-decoration: underline;
     }
 `;
 
-const LogoImage = styled(Image)`
+export const LogoImage = styled(Image)`
     width: 100%;
     height: 100%;
     margin-bottom: 50px;
+`;
+
+const SignUpLinksContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;

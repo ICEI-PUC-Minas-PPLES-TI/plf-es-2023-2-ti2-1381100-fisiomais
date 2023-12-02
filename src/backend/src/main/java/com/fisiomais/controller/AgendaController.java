@@ -1,8 +1,14 @@
 package com.fisiomais.controller;
 
+import com.fisiomais.dto.AgendaRequest;
 import com.fisiomais.bodys.AgendaResponse;
 import com.fisiomais.model.Agenda;
+import com.fisiomais.model.Fisioterapeuta;
 import com.fisiomais.service.AgendaService;
+import com.fisiomais.service.FisioterapeutaService;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +18,17 @@ import java.sql.Time;
 import java.util.List;
 
 @RestController
+@SecurityRequirement(name = "Bearer Authentication")
 @RequestMapping("/api/agenda")
 public class AgendaController {
 
     private final AgendaService agendaService;
+    private final FisioterapeutaService fisioterapeutaService;
 
     @Autowired
-    public AgendaController(AgendaService agendaService) {
+    public AgendaController(AgendaService agendaService, FisioterapeutaService fisioterapeutaService) {
         this.agendaService = agendaService;
+        this.fisioterapeutaService = fisioterapeutaService;
     }
 
     @GetMapping("/fisioterapeuta/{fisioterapeutaId}")
@@ -60,17 +69,49 @@ public class AgendaController {
     }
 
     @PostMapping
-    public ResponseEntity<Agenda> createAgenda(@RequestBody Agenda agenda) {
-        Agenda newAgenda = agendaService.saveAgenda(agenda);
-        return new ResponseEntity<>(newAgenda, HttpStatus.CREATED);
+    public ResponseEntity<?> createAgenda(@RequestBody @Valid AgendaRequest agendaRequest) {
+        try {
+            System.out.println("Fisioterapeuta ID recebido: " + agendaRequest.getFisioterapeutaId());
+
+            if (agendaRequest.getFisioterapeutaId() == null) {
+                return ResponseEntity.badRequest().body("O ID do fisioterapeuta não pode ser nulo.");
+            }
+            Fisioterapeuta fisioterapeuta = fisioterapeutaService.findById(agendaRequest.getFisioterapeutaId())
+                    .orElseThrow(() -> new IllegalArgumentException("Fisioterapeuta não encontrado com o ID: " + agendaRequest.getFisioterapeutaId()));
+
+            Agenda agenda = new Agenda();
+            agenda.setFisioterapeuta(fisioterapeuta);
+            agenda.setDia(agendaRequest.getDia());
+            agenda.setHorarioInicio(agendaRequest.getHorarioInicioAsTime());
+            agenda.setHorarioFim(agendaRequest.getHorarioFimAsTime());
+            agenda.setDisponivel(agendaRequest.getDisponivel());
+
+            Agenda newAgenda = agendaService.saveAgenda(agenda);
+            return ResponseEntity.ok(newAgenda);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        } catch (Exception ex) {
+            return ResponseEntity.internalServerError().body("Ocorreu um erro ao criar a agenda.");
+        }
+    }
+    @PutMapping("/{agendaId}")
+    public ResponseEntity<Agenda> updateAgenda(@PathVariable Integer agendaId, @RequestBody Agenda updatedAgenda) {
+        Agenda existingAgenda = agendaService.getAgendaById(agendaId);
+
+        Fisioterapeuta fisioterapeuta = existingAgenda.getFisioterapeuta();
+
+        existingAgenda.setDia(updatedAgenda.getDia());
+        existingAgenda.setHorarioInicio(updatedAgenda.getHorarioInicio());
+        existingAgenda.setHorarioFim(updatedAgenda.getHorarioFim());
+        existingAgenda.setDisponivel(updatedAgenda.getDisponivel());
+
+        existingAgenda.setFisioterapeuta(fisioterapeuta);
+
+        Agenda savedAgenda = agendaService.updateAgenda(existingAgenda);
+
+        return ResponseEntity.ok(savedAgenda);
     }
 
-    @PutMapping("/{agendaId}")
-    public ResponseEntity<Agenda> updateAgenda(@PathVariable Integer agendaId, @RequestBody Agenda agenda) {
-        agenda.setId(agendaId);
-        Agenda updatedAgenda = agendaService.updateAgenda(agenda);
-        return ResponseEntity.ok(updatedAgenda);
-    }
 
     @GetMapping("/{agendaId}")
     public ResponseEntity<Agenda> getAgendaById(@PathVariable Integer agendaId) {

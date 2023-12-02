@@ -77,11 +77,7 @@ public class AgendaService {
                 .orElseThrow(() -> new RuntimeException("Agenda não encontrada para o ID: " + agendaId));
     }
 
-    private void validateAgenda(Agenda agenda) {
-        if (agenda.getFisioterapeuta() == null) {
-            throw new RuntimeException("É necessário especificar um fisioterapeuta para a agenda.");
-        }
-
+    public void validateAgenda(Agenda agenda) {
         if (agenda.getHorarioInicio().after(agenda.getHorarioFim())) {
             throw new RuntimeException("O horário de início não pode ser posterior ao horário de término.");
         }

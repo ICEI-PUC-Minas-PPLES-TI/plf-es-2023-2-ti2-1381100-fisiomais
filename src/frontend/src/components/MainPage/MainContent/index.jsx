@@ -12,7 +12,7 @@ const MainContent = ({ colorBgContainer }) => {
     const currentUser = useSelector(state => state.currentUser.value);
     const routeParam = window.location.pathname.split('/')[1];
 
-    if (Object.keys(currentUser.user).length === 0) {
+    if (currentUser === null || currentUser === undefined || currentUser.user === null || currentUser.user === undefined) {
         if (routeParam === 'login') {
             return (
                 <div>
@@ -22,13 +22,14 @@ const MainContent = ({ colorBgContainer }) => {
         }
 
         return (
-            <FullScreenContainer>
-                <Result
-                    status={403}
-                    title="Usuário não está logado"
-                    subTitle="Desculpe, ocorreu um erro ao buscar os detalhes de usuário"
-                />
-            </FullScreenContainer>
+            null
+            // <FullScreenContainer>
+            //     <Result
+            //         status={403}
+            //         title="Usuário não está logado"
+            //         subTitle="Desculpe, ocorreu um erro ao buscar os detalhes de usuário"
+            //     />
+            // </FullScreenContainer>
         );
     }
 

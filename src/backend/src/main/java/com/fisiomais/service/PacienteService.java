@@ -1,9 +1,13 @@
 package com.fisiomais.service;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.fisiomais.bodys.PacienteResponse;
 import com.fisiomais.dto.PacienteDTO;
+import com.fisiomais.exception.BusinessException;
 import com.fisiomais.model.Paciente;
+import com.fisiomais.repository.FisioterapeutaRepository;
 import com.fisiomais.repository.PacienteRepository;
 
 import java.text.ParseException;
@@ -13,63 +17,58 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PacienteService {
+public class PacienteService{
 
     private final PacienteRepository pacienteRepository;
+    private final FisioterapeutaRepository fisioterapeutaRepository;
 
-    public PacienteService(PacienteRepository pacienteRepository) {
+    public PacienteService(PacienteRepository pacienteRepository,
+            FisioterapeutaRepository fisioterapeutaRepository) {
         this.pacienteRepository = pacienteRepository;
+        this.fisioterapeutaRepository = fisioterapeutaRepository;
     }
 
     public List<PacienteDTO> getAllPacientes() {
-        // Convert Paciente entities to PacienteDTOs, if necessary
-        // This is where you can implement the conversion logic
-        // For simplicity, we assume PacienteDTO is identical to Paciente
 
         List<Paciente> pacientes = pacienteRepository.findAll();
-        // You may use a mapping library (e.g., ModelMapper) to convert entities to DTOs
-        // For simplicity, we assume the DTO structure is identical to the entity
         return convertPacientesToDTOs(pacientes);
     }
 
     public PacienteDTO getPacienteById(int id) {
         Paciente paciente = pacienteRepository.findById(id).orElse(null);
         if (paciente != null) {
-            // Convert the Paciente entity to a PacienteDTO, if necessary
-            // For simplicity, we assume the DTO structure is identical to the entity
             return toDTO(paciente);
         }
-        return null; // Return null if the Paciente is not found
+        return null;
     }
 
-    public PacienteDTO createPaciente(PacienteDTO pacienteDTO) {
-        // Convert PacienteDTO to Paciente entity, if necessary
-        // For simplicity, we assume the DTO structure is identical to the entity
+    public PacienteResponse createPaciente(PacienteDTO pacienteDTO) {
         Paciente paciente = toEntity(pacienteDTO);
 
-        // Save the Paciente entity to the database
+        if(pacienteRepository.findByEmail(paciente.getEmail()) != null || fisioterapeutaRepository.findByEmail(paciente.getEmail()) != null){
+            throw new BusinessException("Email já cadastrado. Tente realizar o login.");
+        }
+
+        if(pacienteRepository.findByCpf(paciente.getCpf()) != null){
+            throw new BusinessException("CPF já cadastrado. Tente realizar o login.");
+        }
+
         Paciente savedPaciente = pacienteRepository.save(paciente);
 
-        // Convert the saved Paciente entity back to PacienteDTO
-        return toDTO(savedPaciente);
+        return PacienteResponse.toPacienteResponse(savedPaciente);
     }
 
     public PacienteDTO updatePaciente(Integer id, PacienteDTO pacienteDTO) {
         Paciente existingPaciente = pacienteRepository.findById(id).orElse(null);
         if (existingPaciente != null) {
-            // Update the existing Paciente entity with values from the PacienteDTO
-            // You can implement this update logic according to your requirements
-            // For simplicity, we assume the DTO structure is identical to the entity
             existingPaciente.setNome(pacienteDTO.getNome());
             existingPaciente.setEmail(pacienteDTO.getEmail());
-            // Parse the String date to Date using a specific date format
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Adjust the format as needed
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
             Date parsedDate = null;
             try {
                 parsedDate = dateFormat.parse(pacienteDTO.getDataNascimento());
             } catch (ParseException e) {
-                // Handle the parsing exception
                 throw new RuntimeException("Error parsing date. Please provide a valid date format.");
             }
 
@@ -79,27 +78,21 @@ public class PacienteService {
             existingPaciente.setGenero(pacienteDTO.getGenero());
             existingPaciente.setEndereco(pacienteDTO.getEndereco());
 
-            // Save the updated Paciente entity to the database
             Paciente updatedPaciente = pacienteRepository.save(existingPaciente);
 
-            // Convert the updated Paciente entity back to PacienteDTO
             return toDTO(updatedPaciente);
         }
-        return null; // Return null if the Paciente is not found
+        return null;
     }
 
     public boolean deletePaciente(Integer id) {
         if (pacienteRepository.existsById(id)) {
             pacienteRepository.deleteById(id);
-            return true; // Return true if the Paciente is deleted
+            return true;
         }
-        return false; // Return false if the Paciente is not found
+        return false;
     }
 
-    // Additional methods for custom business logic, validation, etc.
-    // You can define these methods based on your project's requirements
-
-    // Helper methods for converting between Paciente and PacienteDTO
     private PacienteDTO toDTO(Paciente paciente) {
         PacienteDTO pacienteDTO = new PacienteDTO();
         pacienteDTO.setId(paciente.getId());
@@ -107,7 +100,6 @@ public class PacienteService {
         pacienteDTO.setNome(paciente.getNome());
         pacienteDTO.setEmail(paciente.getEmail());
         pacienteDTO.setPassword(paciente.getPassword());
-        // Format the date as a String
         pacienteDTO.setDataNascimento(paciente.getDataNascimento().toString());
         pacienteDTO.setCpf(paciente.getCpf());
         pacienteDTO.setTelefone(paciente.getTelefone());

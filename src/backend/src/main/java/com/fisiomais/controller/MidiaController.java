@@ -2,25 +2,26 @@ package com.fisiomais.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.fisiomais.dto.MidiaDTO;
 import com.fisiomais.exception.BusinessException;
 import com.fisiomais.model.Fisioterapeuta;
 import com.fisiomais.model.Midia;
+import com.fisiomais.model.indicators.MidiaTypesMetrics;
 import com.fisiomais.repository.FisioterapeutaRepository;
 import com.fisiomais.service.MidiaService;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/midia")
+@SecurityRequirement(name = "Bearer Authentication")
 @Tag(name = "Mídias", description = "Endpoint para gerenciar mídias controladas pelos fisioterapeutas")
 public class MidiaController {
 
@@ -97,6 +98,18 @@ public class MidiaController {
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    @GetMapping("/taxa-utilizacao")
+    @Operation(summary = "Obter taxa de criação de tipos de mídia", description = "Obter a taxa de criação de tipos de mídia em comparação com o total de mídias.")
+    @ApiResponse(responseCode = "200", description = "Operação bem-sucedida")
+    public ResponseEntity<MidiaTypesMetrics> getTaxaUtilizacao() {
+        try {
+            List<MidiaTypesMetrics> taxaUtilizacao = midiaService.getTaxaUtilizacao();
+            return new ResponseEntity<>(taxaUtilizacao.get(0), HttpStatus.OK);
+        } catch (Exception e) {
+            throw new BusinessException(e.getMessage());
         }
     }
 }

@@ -6,7 +6,9 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      include: "**/*.jsx",
+    }),
     jsconfigPaths(),
     // envCompatible({
     //   API_TYPE: process.env.NODE_ENV === 'json' ? 'json' :
@@ -15,8 +17,8 @@ export default defineConfig({
   ],
   define: {
     'process.env': {
-      API_TYPE: process.env.API_TYPE === 'json' ? 'json' : 
-                process.env.API_TYPE === 'spring' ? 'spring' : '',
+      API_TYPE: process.env.API_TYPE === 'json' ? 'json' :
+        process.env.API_TYPE === 'spring' ? 'spring' : '',
     }
   }
 });

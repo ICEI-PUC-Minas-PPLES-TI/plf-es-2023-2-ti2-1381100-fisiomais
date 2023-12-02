@@ -1,0 +1,21 @@
+﻿# Arquivos de build
+node_modules/
+dist/
+build/
+
+# Arquivos de configuração
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependências
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Outros arquivos
+.DS_Store
+Thumbs.db

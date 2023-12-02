@@ -24,11 +24,11 @@ public class Tratamento {
     private Date createTime;
 
     @ManyToOne
-    @JoinColumn(name = "fisioterapeuta__id", nullable = false)
+    @JoinColumn(name = "fisioterapeuta__id", referencedColumnName = "_id")
     private Fisioterapeuta fisioterapeuta;
 
     @ManyToOne
-    @JoinColumn(name = "paciente__id", nullable = false)
+    @JoinColumn(name = "paciente__id", referencedColumnName = "_id")
     private Paciente paciente;
 
     @Column(name = "titulo", nullable = false)

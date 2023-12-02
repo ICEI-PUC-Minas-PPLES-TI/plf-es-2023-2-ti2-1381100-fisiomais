@@ -1,0 +1,1 @@
+export { IconConfirmed } from "./IconConfirmed";

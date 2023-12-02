@@ -1,52 +1,53 @@
 package com.fisiomais.model;
 
-import java.util.Date;
+import java.util.Collection;
+import java.util.List;
 
-import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fisiomais.bodys.FisioterapeutaResponse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "fisioterapeuta")
-public class Fisioterapeuta {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "_id")
-    private Integer id;
-
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "create_time", updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "UTC")
-    private Date create_time;
-
-    @Column(nullable = false, length = 100)
-    private String nome;
-
-    @Column(nullable = false, length = 255)
-    private String email;
-
-    @Column(nullable = false, length = 32)
-    private String password;
-
-    @Column(nullable = false, length = 11)
-    private String telefone;
-
-    @Column(length = 200)
-    private String endereco;
-
+public class Fisioterapeuta extends User{
     @Column(name = "controle_automatico", nullable = false)
     private Boolean automatic;
+
+    @Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("FISIOTERAPEUTA"));
+    }
+
+    @Override
+    public String getUsername() {
+        return this.getEmail();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

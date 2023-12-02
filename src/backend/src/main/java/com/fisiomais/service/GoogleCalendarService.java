@@ -13,10 +13,9 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fisiomais.UUIDGen;
+import com.fisiomais.util.UUIDGen;
 import com.fisiomais.entities.ConferenceEventData;
 import com.fisiomais.exception.ServerException;
 import com.fisiomais.model.Consulta;

@@ -9,6 +9,7 @@ import com.fisiomais.model.Exercicio;
 import com.fisiomais.model.Fisioterapeuta;
 import com.fisiomais.model.Midia;
 import com.fisiomais.model.enums.TipoArquivo;
+import com.fisiomais.model.indicators.MidiaTypesMetrics;
 import com.fisiomais.repository.FisioterapeutaRepository;
 import com.fisiomais.repository.MidiaRepository;
 
@@ -171,5 +172,9 @@ public class MidiaService {
         return midias.stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public List<MidiaTypesMetrics> getTaxaUtilizacao() {
+        return midiaRepository.getTaxaUtilizacao();
     }
 }

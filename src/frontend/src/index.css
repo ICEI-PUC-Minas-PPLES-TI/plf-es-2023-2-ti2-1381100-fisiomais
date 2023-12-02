@@ -1,3 +1,41 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --accent: rgba(233, 24, 104, 1);
+  --accent-dark: rgba(208, 22, 93, 1);
+  --attention: rgba(248, 177, 20, 1);
+  --base: rgba(102, 110, 125, 1);
+  --blue-active: rgba(103, 116, 189, 1);
+  --blue-light: rgba(165, 173, 215, 1);
+  --gray-100: rgba(255, 255, 255, 1);
+  --gray-400: rgba(220, 223, 227, 1);
+  --gray-900: rgba(59, 62, 69, 1);
+  --green: rgba(2, 164, 67, 1);
+  --grey-100: rgba(249, 249, 251, 1);
+  --grey-200: rgba(249, 249, 251, 1);
+  --grey-400: rgba(220, 223, 227, 1);
+  --grey-700: rgba(102, 110, 125, 1);
+  --grey-800: rgba(88, 94, 106, 1);
+  --inactive: rgba(102, 110, 125, 0.5);
+  --primary: rgba(52, 66, 147, 1);
+  --purple: rgba(109, 91, 208, 1);
+  --shade-line: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+  --textaccent: rgba(255, 205, 96, 1);
+  --textbase: rgba(0, 0, 0, 0.87);
+  --textdarkgrey: rgba(88, 94, 106, 1);
+  --textlink-default: rgba(83, 99, 189, 1);
+  --textlink-hover: rgba(121, 131, 189, 1);
+  --textwaiting: rgba(242, 78, 30, 1);
+  --visited: rgba(0, 0, 0, 0.4);
+}
+
 html, body {
   padding: 0;
   margin: 0;

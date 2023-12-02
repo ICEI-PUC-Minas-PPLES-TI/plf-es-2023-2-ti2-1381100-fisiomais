@@ -1,12 +1,15 @@
 package com.fisiomais.service;
 
 import com.fisiomais.bodys.ConsultaResponse;
+import com.fisiomais.bodys.ConsultaResponseAgenda;
 import com.fisiomais.bodys.FisioterapeutaResponse;
 import com.fisiomais.bodys.NovaConsultaRequest;
 import com.fisiomais.bodys.PacienteResponse;
 import com.fisiomais.entities.ConferenceEventData;
 import com.fisiomais.model.Consulta;
 import com.fisiomais.model.enums.StatusConsulta;
+import com.fisiomais.model.indicators.CancelationMetrics;
+import com.fisiomais.model.indicators.ConfirmationMetrics;
 import com.fisiomais.repository.ConsultaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -112,22 +116,45 @@ public class ConsultaService {
         return consultaRepository.findAll();
     }
 
-    private ConsultaResponse toConsultaResponse(Consulta consulta) {
+    public ConsultaResponse toConsultaResponse(Consulta consulta) {
         String obsevacoesConsulta = consulta.getObservacoes() != null
                 ? new String(consulta.getObservacoes().getBytes(StandardCharsets.ISO_8859_1),
                         StandardCharsets.UTF_8)
                 : null;
-
         return new ConsultaResponse(
-                PacienteResponse.toPacienteResponse(consulta.getPaciente()),
-                FisioterapeutaResponse.toFisioterapeutaResponse(consulta.getFisioterapeuta()),
+                consulta.getPaciente().getId(),
+                consulta.getFisioterapeuta().getId(),
                 consulta.getDataEHora(),
                 obsevacoesConsulta,
                 consulta.getConfirmacao(),
                 consulta.getLink());
     }
 
-	public List<Consulta> getConsultasByFisioterapeuta(Integer fisioterapeutaId) {
+    public List<ConsultaResponseAgenda> toConsultaResponseAgenda(List<Consulta> consultaList) {
+        List<ConsultaResponseAgenda> consultasResponse = new ArrayList<>();
+        for (Consulta c : consultaList) {
+            consultasResponse.add(ConsultaResponseAgenda.toResponse(c));
+        }
+        return consultasResponse;
+    }
+
+    public List<Consulta> getConsultasByFisioterapeuta(Integer fisioterapeutaId) {
         return consultaRepository.findByFisioterapeutaId(fisioterapeutaId);
-	}
+    }
+
+    public double getTaxaConclusao() {
+        return consultaRepository.calculateTaxaConclusao();
+    }
+
+    public double getTaxaReagendamento() {
+        return consultaRepository.calculateTaxaReagendamento();
+    }
+
+    public ConfirmationMetrics getTaxaConfirmacao(Integer mes, Integer ano) {
+        return consultaRepository.getConfirmationMetricsForMonthAndYear(mes, ano);
+    }
+
+    public CancelationMetrics getTaxaCancelamento() {
+        return consultaRepository.getCancelationMetrics();
+    }
 }

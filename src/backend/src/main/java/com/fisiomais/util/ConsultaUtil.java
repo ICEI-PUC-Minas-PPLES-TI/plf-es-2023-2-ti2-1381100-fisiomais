@@ -50,8 +50,6 @@ public class ConsultaUtil {
             novaConsulta.setConfirmacao(StatusConsulta.pendente);
         }
 
-        novaConsulta.setOwner_id(paciente.getId());
-
         return novaConsulta;
     }
 }
