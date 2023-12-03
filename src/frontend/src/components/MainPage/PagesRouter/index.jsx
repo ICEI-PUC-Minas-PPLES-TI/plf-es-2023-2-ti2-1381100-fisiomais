@@ -16,7 +16,9 @@ import AcompanhamentoVirtual from 'pages/Acompanhar';
 import Consulta from 'pages/Consulta';
 import DadosConsulta from 'pages/Consulta/DadosConsulta';
 import Login from 'pages/Login';
-import Gerenciamento from 'pages/Gerenciamento';
+import Gerenciamento from 'pages/Planos/CriarPlano';
+import Planos from 'pages/Planos';
+import CriarPlano from 'pages/Planos/CriarPlano';
 
 const PagesRouter = () => {
   return (
@@ -36,7 +38,9 @@ const PagesRouter = () => {
       <Route path="/nova-consulta" element={<Consulta />} />
       <Route path="/nova-consulta/dados" element={<DadosConsulta />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/gerenciamento" element={<Gerenciamento />} />
+      <Route path="/planos" element={<Planos />} />
+      <Route path="/planos/criar" element={<CriarPlano />} />
+      <Route path="/planos/:id" element={<CriarPlano />} />
     </Routes>
   );
 };

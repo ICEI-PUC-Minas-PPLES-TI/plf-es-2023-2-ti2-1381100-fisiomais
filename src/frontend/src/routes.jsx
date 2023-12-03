@@ -16,7 +16,7 @@ import AcompanhamentoVirtual from "pages/Acompanhar";
 import Consulta from "pages/Consulta";
 import DadosConsulta from 'pages/Consulta/DadosConsulta';
 import Login from "pages/Login";
-import Gerenciamento from "pages/Gerenciamento";
+import Planos from "pages/Planos";
 
 const Router = () => {
   return (
@@ -36,7 +36,7 @@ const Router = () => {
       <Route component={Consulta} path="/nova-consulta" />
       <Route component={DadosConsulta} path="/nova-consulta/dados" />
       <Route component={Login} path='/login' />
-      <Route component={Gerenciamento} path='/Gerenciamento' />
+      <Route component={Planos} path='/planos' />
     </Routes>
   );
 }

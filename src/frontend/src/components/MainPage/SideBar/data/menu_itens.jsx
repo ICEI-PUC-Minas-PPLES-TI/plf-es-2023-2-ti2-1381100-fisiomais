@@ -60,8 +60,8 @@ const SideMenuItens = [
   {
     key: 8,
     icon: <MdPeopleOutline />,
-    label: 'Gerenciamento do Plano',
-    route: 'gerenciamento',
+    label: 'Planos',
+    route: 'planos',
   }
 ]
 
