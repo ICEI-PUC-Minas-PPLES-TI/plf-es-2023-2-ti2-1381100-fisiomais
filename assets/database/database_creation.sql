@@ -230,6 +230,20 @@ CREATE TABLE IF NOT EXISTS `fisiomais_db`.`tratamento_has_exercicios` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `fisiomais_db`.`plano`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fisiomais_db`.`plano` (
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `_id` INT NOT NULL AUTO_INCREMENT,
+  `data_inicio` DATETIME(1) NOT NULL,
+  `tituloTexto` TEXT(500) NULL,
+  `conteudoTexto` TEXT(500) NULL,
+  `frequencia` TEXT(45) NULL,
+  `midias` TEXT(500) NULL,
+  `formatacao` TEXT(45) NULL,
+  PRIMARY KEY (`_id`)
+)
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
