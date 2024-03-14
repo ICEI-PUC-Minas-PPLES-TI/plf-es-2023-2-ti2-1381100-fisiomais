@@ -1,14 +1,10 @@
 # YAML 1.2
 ---
 authors: 
-  - family-names: Perez
-    given-names: Bruna
   - family-names: Henrique
     given-names: Guilherme
   - family-names: Victor
     given-names: Jose
-  - family-names: Antonio
-    given-names: Marco
   - family-names: Marcelo
     given-names: Rubens
     
