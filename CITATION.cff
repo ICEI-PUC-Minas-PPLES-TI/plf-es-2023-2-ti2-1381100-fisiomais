@@ -7,7 +7,6 @@ authors:
     given-names: Jose
   - family-names: Marcelo
     given-names: Rubens
-    
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: De Paula
@@ -20,17 +19,11 @@ authors:
     affiliation: PUC Minas
     family-names: Silva
     given-names: Luiz Henrique da Costa
-
 cff-version: "1.1.0"
 keywords: 
   - "Modelagem de Processos de Negócios"
   - "Fisioterapia"
   - "Online"
-message: |
-    "If you use this software, please cite it using these metadata.
-    Se você utilizar este software, por favor cite-o utilizando estes metadados."
 repository-code: "https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1381100-fisiomais"
-title: "Fisio+"
-abstract: |
-    " Oferecer serviços online de fisioterapia, proporcionando atividades personalizadas para melhorar a saúde física. Os programas incluem exercícios guiados e acompanhamento virtual, visando a recuperação, fortalecimento e prevenção de lesões."
-...
+title: Fisio+
+date-released: 2023-12-21
